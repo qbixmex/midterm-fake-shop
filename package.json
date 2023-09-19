@@ -1,0 +1,7 @@
+{
+  "name": "fake-store",
+  "version": "1.0.0",
+  "description": "midterm-project",
+  "main": "app.js",
+  "type": "module"
+}
