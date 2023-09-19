@@ -1,21 +1,20 @@
 import Product from './Product.js';
+import ProductItem from './ProductItem.js';
 
 class App {
   constructor() {
-    console.log('App constructor executed.')
+    this.product = new Product(
+      1,
+      'Iphone X Mega Ultra',
+      2_575.45,
+      'The best phone ever since now with the best technology ...',
+      'iphone-x-mega-ultra.jpg'
+    );
+    this.productItem = new ProductItem(this.product);
   }
 }
 
-const product = new Product(
-  1,
-  'Iphone X Mega Ultra',
-  2_575.45,
-  'The best phone ever since now with the best technology ...',
-  'iphone-x-mega-ultra.jpg'
-);
+const app = new App();
 
-console.log("ID:", product.id);
-console.log("Title:", product.title);
-console.log("Price: $", product.price.toLocaleString());
-console.log("Description:", product.description);
-console.log("Image:", product.image);
+app.productItem.addToCart();
+console.log(app.productItem.render());
