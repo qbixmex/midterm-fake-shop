@@ -165,6 +165,10 @@ class Product {
   get image() {
     return this.#image;
   }
+
+  get product() {
+    return this;
+  }
 }
 
 export default Product;

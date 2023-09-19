@@ -1,63 +1,79 @@
-/**
- * @typedef {import('../../types').ProductType} ProductType
- */
+import Product from './Product.js';
 
-class ProductItem {
+/** @typedef {import('../../types').ProductType} ProductType */
 
-  /** @type {ProductType} */
-  #product;
+class ProductItem extends Product {
 
   /**
-   * @param {ProductType} product 
+   * @param {ProductType} product - Product object.
    */
-  constructor(product) {
-    this.product = product;
-  }
-
-  //* ===================== SETTERS =====================
-
-  /**
-   * Set product
-   * @param {ProductType} object
-   * @returns {void}
-   */
-  set product(object) {
-    if (typeof object !== 'object') {
-      throw new Error('You must pass a Product instance !');
-    }
-    this.#product = object;
-  }
-
-  //* ===================== GETTERS =====================
-
-  /**
-   * Gets the product instance.
-   * @returns {ProductType}
-   */
-  get product() {
-    return this.#product;
+  constructor({id, title, price, description, image}) {
+    super(id, title, price, description, image);
   }
 
   //* ===================== METHODS =====================
 
   /**
    * Adds a product to shopping cart.
-   * @returns {void}
+   * @returns {string} A successful message.
    */
   addToCart() {
-    // just console.log the product for now
-    console.log("ID:", this.product.id);
-    console.log("Title:", this.product.title);
-    console.log("Description:", this.product.description);
-    console.log("Image:", this.product.image);
-    console.log("Price: $", this.product.price.toLocaleString());
+    console.log({
+      id: this.id,
+      title: this.title,
+      price: this.price,
+      description: this.description,
+      image: this.image,
+    });
+    return 'Product Added to Cart !';
   }
 
+  /**
+   * Gets string HTML output.
+   * @returns {string} - HTML table string.
+   */
   render() {
-    // return the product element with the product data (<li>)
-    return `<li>${this.#product.title}</li>`;
+    let output = '';
+    output += '<table>'
+    output += '<body>'
+    output += '<tr>'
+    output += '<th>ID</th>'
+    output += `<td>${this.product.id}</td>`
+    output += '</tr>'
+    output += '<tr>'
+    output += '<th>Title</th>'
+    output += `<td>${this.product.title}</td>`
+    output += '</tr>'
+    output += '<tr>'
+    output += '<th>Price</th>'
+    output += `<td>${this.product.price}</td>`
+    output += '</tr>'
+    output += '<tr>'
+    output += '<th>Description</th>'
+    output += `<td>${this.product.description}</td>`
+    output += '</tr>'
+    output += '<tr>'
+    output += '<th>Image</th>'
+    output += `<td>${this.product.image}</td>`
+    output += '</tr>'
+    output += '<body>'
+    output += '</table>';
+    return output;
   }
 
 }
 
 export default ProductItem;
+
+const productItem = new ProductItem({
+  id: 1,
+  title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+  price: 109.95,
+  description: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday"',
+  image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+});
+
+productItem.addToCart();
+
+console.log("Program Stops");
+
