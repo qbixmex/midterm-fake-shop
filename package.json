@@ -1,6 +1,6 @@
 {
   "name": "fake-store",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "midterm-project",
   "main": "app.js",
   "type": "module"

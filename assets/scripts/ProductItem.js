@@ -28,6 +28,8 @@ class ProductItem {
     this.#product = object;
   }
 
+  //* ===================== GETTERS =====================
+
   /**
    * Gets the product instance.
    * @returns {ProductType}
@@ -35,6 +37,8 @@ class ProductItem {
   get product() {
     return this.#product;
   }
+
+  //* ===================== METHODS =====================
 
   /**
    * Adds a product to shopping cart.
