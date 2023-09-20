@@ -21,7 +21,7 @@ class ProductList {
     return getProductsAPIDevelopment();
   }
 
-  async render() {
+  render() {
 
     const productsResponse = this.fetchProducts();
 
@@ -31,7 +31,7 @@ class ProductList {
 
     //* Creates HTML Elements.
     const section = `
-      <header>${ Navbar() }<header>
+      <header id="header">${ Navbar() }<header>
       <main id="main" class="container text-white">
         <div class="row" id="row"></div>
       </main>
