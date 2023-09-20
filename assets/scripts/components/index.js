@@ -1,2 +1,3 @@
-export { default as Navbar } from './navbar.js';
-export { default as Footer } from './footer.js';
+export { default as Navbar } from './Navbar.js';
+export { default as Footer } from './Footer.js';
+export { default as Card } from './Card.js';

@@ -1,3 +1,8 @@
+/**
+ * Footer component.
+ * @param {string} text Footer text like copyright.
+ * @returns {string} HTML string.
+ */
 const Footer = (text) => {
   return `
     <nav class="navbar bg-dark sticky-bottom">
