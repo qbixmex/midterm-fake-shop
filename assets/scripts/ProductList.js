@@ -1,10 +1,14 @@
 import { getProductsAPIDevelopment } from '../services/getProductsAPI.js';
 import ProductItem from './ProductItem.js';
 
-/** @typedef { import('../../types.d.ts').ProductResponse } ProductResponse */
+/**
+ * @typedef { import('../../types.d.ts').ProductType } ProductType
+ * @typedef { import('../../types.d.ts').ProductResponse } ProductResponse
+ */
 
 class ProductList {
   constructor() {
+    /** @type {ProductType[]} */
     this.products = [];
   }
 
