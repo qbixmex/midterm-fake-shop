@@ -29,7 +29,13 @@ class ProductList {
     });
 
     //* Creates HTML Elements.
-    $("#app").append('<ul id="list"></ul>');
+    const section = `
+      <main id="main" class="container text-white">
+        <div class="row" id="row"></div>
+      </main>
+    `;
+
+    $("#app").append(section);
 
     this.products.forEach(product => {
       new ProductItem(product).render();
