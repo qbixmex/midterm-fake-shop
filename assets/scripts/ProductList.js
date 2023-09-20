@@ -1,5 +1,6 @@
 import { getProductsAPIDevelopment } from '../services/getProductsAPI.js';
 import ProductItem from './ProductItem.js';
+import { Navbar, Footer } from './components/index.js';
 
 /**
  * @typedef { import('../../types.d.ts').ProductType } ProductType
@@ -30,9 +31,11 @@ class ProductList {
 
     //* Creates HTML Elements.
     const section = `
+      <header>${ Navbar() }<header>
       <main id="main" class="container text-white">
         <div class="row" id="row"></div>
       </main>
+      <footer>${ Footer('Shop Toc &copy; 2023') }</footer>
     `;
 
     $("#app").append(section);
