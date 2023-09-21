@@ -1,7 +1,10 @@
+import { Navbar } from './components/index.js';
+import { formatPrice } from './helpers/format.js';
+
 class ShoppingCart {
 
   constructor() {
-    this.items = [109.95, 22.30, 55.99, 168.00, 55.99];
+    this.items = [];
     this.total = 0;
   }
 
@@ -11,24 +14,31 @@ class ShoppingCart {
    */
   getTotal() {
     if (this.items.length > 0) {
-      this.total = this.items.reduce((previousPrice, currentPrice) => {
-        return previousPrice + currentPrice;
+      this.total = this.items.reduce((previous, current) => {
+        return previous + current.price;
       }, 0);
     }
     return this.total;
   }
 
   /**
-   * Render the total and a button
+   * Add product to shopping cart.
+   * @param { ProductType } product The product object.
+   * @returns { void }
+   */
+  addToCart(product) {
+    this.items.push(product);
+    $('#total-price').text(`$ ${formatPrice(this.getTotal())}`);
+  }
+
+  /**
+   * Renders HTML top Navbar and Total.
+   * @returns {string} Navbar HTML string.
    */
   render() {
-    $("#header").append(Navbar(this.price));
+    return Navbar(this.total);
   }
 
 }
 
 export default ShoppingCart;
-
-const shoppingCart = new ShoppingCart();
-
-shoppingCart.getTotal();

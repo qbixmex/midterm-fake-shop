@@ -1,3 +1,4 @@
+import ProductItem from '../ProductItem.js';
 import { formatPrice } from '../helpers/format.js';
 /** @typedef { import('../../../types.js').ProductType } ProductType */
 
@@ -19,7 +20,7 @@ const Card = (product) => {
         }</h5>
         <p class="card-text card-description">${product.description.substring(0, 150)} ...</p>
         <div class="d-grid d-lg-block text-lg-end">
-          <button class="btn btn-primary">Add to Cart</button>
+          <button id="product-${product.id}" class="btn btn-primary btn-add-cart">Add to Cart</button>
         </div>
       </div>
     </div>

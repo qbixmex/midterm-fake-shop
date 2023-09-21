@@ -1,6 +1,5 @@
 import { getProductsAPIDevelopment } from '../services/getProductsAPI.js';
 import ProductItem from './ProductItem.js';
-import { Navbar, Footer } from './components/index.js';
 
 /**
  * @typedef { import('../../types.d.ts').ProductType } ProductType
@@ -14,35 +13,33 @@ class ProductList {
   }
 
   /**
-   * Fetch the products from given API.
-   * @returns {ProductResponse[]}
+   * Fetch the products from given API
+   * and push each to this products array.
+   * @returns {void}
    */
   fetchProducts() {
-    return getProductsAPIDevelopment();
-  }
-
-  render() {
-
-    const productsResponse = this.fetchProducts();
+    const productsResponse = getProductsAPIDevelopment();
 
     productsResponse.forEach(product => {
       this.products.push(product);
     });
+  }
 
-    //* Creates HTML Elements.
-    const section = `
-      <header id="header">${ Navbar() }<header>
-      <main id="main" class="container text-white">
-        <div class="row" id="row"></div>
-      </main>
-      <footer>${ Footer('Shop Toc &copy; 2023') }</footer>
-    `;
+  /**
+   * Renders HTML Product List.
+   * @returns {string[]} Product rows
+   */
+  render() {
 
-    $("#app").append(section);
+    this.fetchProducts();
+
+    let output = '';
 
     this.products.forEach(product => {
-      new ProductItem(product).render();
+      output += new ProductItem(product).render();
     });
+
+    return output;
 
   }
 }
