@@ -5,7 +5,7 @@
  */
 const Footer = (text) => {
   return `
-    <nav class="navbar bg-dark sticky-bottom">
+    <nav class="navbar bg-dark sticky-bottom mt-4">
       <div class="container-fluid d-flex justify-content-center py-3">
         <p class="m-0 text-light">${text}</p>
       </div>

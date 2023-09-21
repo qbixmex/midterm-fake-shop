@@ -7,7 +7,7 @@ import { formatPrice } from "../helpers/format.js";
  */
 const Navbar = (total = 0) => {
   return `
-    <nav class="navbar bg-dark mb-4">
+    <nav class="navbar fixed-top bg-dark mb-4">
       <div class="container-fluid">
         <a class="navbar-brand text-white" href="#">Shop Toc</a>
         <section class="navbar-text text-white cart-total">
