@@ -45,9 +45,8 @@ class App {
    * @returns { void }
    */
   addProductToCart(product) {
-    // add the product to the cart by calling the addToCart
-    // method of Cart class
     this.shop.ShoppingCart.addToCart(product);
+    this.shop.displayToast();
   }
 
 }

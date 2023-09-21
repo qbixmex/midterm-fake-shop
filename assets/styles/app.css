@@ -30,3 +30,27 @@ body {
 .cart-total {
   font-size: 1.2rem;
 }
+
+#alert {
+  display: block;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 20px;
+  margin: 0 auto 30px;
+  z-index: 9999;
+
+  animation: toast 200ms ease-out;
+}
+
+@keyframes toast {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scaleX(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+  }
+}

@@ -1,6 +1,6 @@
 import ProductList from './ProductList.js';
 import ShoppingCart from './ShoppingCart.js';
-import { Footer } from './components/index.js';
+import { Alert, Footer } from './components/index.js';
 
 class Shop {
 
@@ -20,7 +20,6 @@ class Shop {
    * @return {void}
    */
   render() {
-
     const section = `
       <header id="header">
         ${ this.ShoppingCart.render() }
@@ -34,6 +33,21 @@ class Shop {
     `;
   
     $("#app").append(section);
+  }
+
+  /**
+   * Show Toast notifications.
+   * @returns {void}
+   */
+  displayToast() {
+    $('body').prepend(Alert('Product added to cart', 'success'));
+    setTimeout(() => {
+      $("#alert")
+        .animate({ opacity: 0 }, 500)
+        .delay(500).queue(function() {
+          $(this).remove();
+        });
+    }, 1000);
   }
 }
 
