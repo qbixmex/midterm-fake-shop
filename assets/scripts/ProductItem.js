@@ -16,14 +16,6 @@ class ProductItem {
   //* ===================== METHODS =====================
 
   /**
-   * Adds a product to shopping cart.
-   * @returns {string} A successful message.
-   */
-  static addToCart(product) {
-    console.log('Product:', product.title);
-  }
-
-  /**
    * Renders product HTML.
    * @returns {string} HTML string.
    */
