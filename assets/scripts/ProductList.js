@@ -26,8 +26,15 @@ class ProductList {
    */
   async render() {
 
-    const productsResponse = await this.fetchProducts();
-    
+    let productsResponse;
+
+    if (!localStorage.getItem('products')) {
+      productsResponse = await this.fetchProducts();
+      localStorage.setItem('products', JSON.stringify(productsResponse));
+    } else {
+     productsResponse = JSON.parse(localStorage.getItem('products'));
+    }
+
     productsResponse.forEach(product => {
       this.products.push(product);
     });
