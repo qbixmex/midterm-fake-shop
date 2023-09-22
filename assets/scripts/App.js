@@ -21,7 +21,14 @@ class App {
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const product = this.searchProduct(button.id, products);
+
+        button.setAttribute('disabled', true);
+
         this.addProductToCart(product);
+
+        setTimeout(() => {
+          button.removeAttribute('disabled');
+        }, 1000);
       });
     });
   }
