@@ -54,3 +54,14 @@ body {
     transform: translateY(0) scaleX(1);
   }
 }
+
+#summary {
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+#summary .modal-content {
+  width: 100%;
+}

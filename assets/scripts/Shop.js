@@ -1,6 +1,6 @@
 import ProductList from './ProductList.js';
 import ShoppingCart from './ShoppingCart.js';
-import { Alert, Footer } from './components/index.js';
+import { Alert, Modal, Footer } from './components/index.js';
 
 class Shop {
 
@@ -20,7 +20,16 @@ class Shop {
    * @return {void}
    */
   render() {
+    let cart;
+
+    if (localStorage.getItem('cart')) {
+      cart = JSON.parse(localStorage.getItem('cart'));
+    } else {
+      cart = { items: [], total: 0.00 };
+    }
+
     const section = `
+      ${ Modal(cart) }
       <header id="header">
         ${ this.ShoppingCart.render() }
       </header>

@@ -1,4 +1,14 @@
-export { default as Navbar } from './Navbar.js';
-export { default as Footer } from './Footer.js';
-export { default as Card } from './Card.js';
-export { default as Alert } from './Alert.js';
+import Navbar from './Navbar.js';
+import Footer from './Footer.js';
+import Card from './Card.js';
+import Alert from './Alert.js';
+import { Modal, ProductRows } from './Modal.js';
+
+export {
+  Navbar,
+  Footer,
+  Card,
+  Alert,
+  Modal,
+  ProductRows,
+};

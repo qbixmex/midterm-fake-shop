@@ -1,4 +1,4 @@
-import { Navbar } from './components/index.js';
+import { Navbar, ProductRows } from './components/index.js';
 import { formatPrice } from './helpers/format.js';
 
 class ShoppingCart {
@@ -41,6 +41,26 @@ class ShoppingCart {
       items: this.items,
       total: this.total,
     }));
+
+    $('#summary tbody').empty().append(
+      ProductRows({ items: this.items, total: this.total })
+    );
+
+    $('#cart-price span').text(`$ ${formatPrice(this.total)}`);
+
+  }
+
+  /**
+   * Clear cart
+   * @returns {void}
+   */
+  clearOrder() {
+    this.items = [];
+    this.total = 0;
+    localStorage.removeItem('cart');
+    $('#total-price').text('$ 0.00');
+    $('#summary tbody').empty();
+    $('#cart-price span').text('$ 0.00');
   }
 
   /**

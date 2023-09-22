@@ -32,6 +32,12 @@ class App {
       });
     });
 
+    const clearCartBtn = document.getElementById('clear-cart');
+
+    clearCartBtn.addEventListener('click', () => {
+      this.shop.ShoppingCart.clearOrder();
+    });
+
     if (localStorage.getItem('cart')) {
       const totalPrice = JSON.parse(localStorage.getItem('cart')).total;
       $('#total-price').text(`$ ${formatPrice(totalPrice)}`);
