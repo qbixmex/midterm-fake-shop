@@ -1,5 +1,5 @@
 import Shop from './Shop.js';
-import ProductItem from './ProductItem.js';
+import { formatPrice } from './helpers/format.js';
 /** @typedef { import('../../types.d.ts').ProductType } ProductType */
 
 class App {
@@ -31,6 +31,11 @@ class App {
         }, 1000);
       });
     });
+
+    if (localStorage.getItem('cart')) {
+      const totalPrice = JSON.parse(localStorage.getItem('cart')).total;
+      $('#total-price').text(`$ ${formatPrice(totalPrice)}`);
+    }
   }
 
   /**

@@ -27,8 +27,20 @@ class ShoppingCart {
    * @returns { void }
    */
   addToCart(product) {
+    if (localStorage.getItem('cart')) {
+      const cart = JSON.parse(localStorage.getItem('cart'))
+      this.total = cart.total;
+      this.items = cart.items;
+    }
+
     this.items.push(product);
+
     $('#total-price').text(`$ ${formatPrice(this.getTotal())}`);
+
+    localStorage.setItem('cart', JSON.stringify({
+      items: this.items,
+      total: this.total,
+    }));
   }
 
   /**
