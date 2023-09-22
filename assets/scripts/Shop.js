@@ -19,7 +19,7 @@ class Shop {
    * and ShoppingCart classes.
    * @return {void}
    */
-  render() {
+  async render() {
     let cart;
 
     if (localStorage.getItem('cart')) {
@@ -35,7 +35,7 @@ class Shop {
       </header>
       <main id="main" class="container text-white">
         <div class="row" id="row">
-          ${ this.ProductList.render() }
+          ${ await this.ProductList.render()}
         </div>
       </main>
       <footer>${ Footer('Shop Toc &copy; 2023') }</footer>

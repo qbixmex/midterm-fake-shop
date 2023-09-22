@@ -11,8 +11,8 @@ class App {
    * Initialize App
    * @returns {void}
    */
-  init() {
-    this.shop.render();
+  async init() {
+    await this.shop.render();
 
     const products = this.shop.ProductList.products;
 

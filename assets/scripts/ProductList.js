@@ -1,4 +1,4 @@
-import { getProductsAPIDevelopment } from '../services/getProductsAPI.js';
+import { getProductsAPI } from '../services/getProductsAPI.js';
 import ProductItem from './ProductItem.js';
 
 /**
@@ -13,25 +13,24 @@ class ProductList {
   }
 
   /**
-   * Fetch the products from given API
-   * and push each to this products array.
-   * @returns {void}
+   * Fetch the products from given API.
+   * @returns {ProductResponse[]}
    */
-  fetchProducts() {
-    const productsResponse = getProductsAPIDevelopment();
-
-    productsResponse.forEach(product => {
-      this.products.push(product);
-    });
+  async fetchProducts() {
+    return await getProductsAPI();
   }
 
   /**
    * Renders HTML Product List.
    * @returns {string[]} Product rows
    */
-  render() {
+  async render() {
 
-    this.fetchProducts();
+    const productsResponse = await this.fetchProducts();
+    
+    productsResponse.forEach(product => {
+      this.products.push(product);
+    });
 
     let output = '';
 
