@@ -23,7 +23,7 @@ export const ProductRows = (cart) => {
 export const Modal = (cart) => {
   return `
     <div class="modal fade" id="summary" tabindex="-1">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">Summary</h1>
@@ -35,7 +35,7 @@ export const Modal = (cart) => {
                 <tr>
                   <th>Image</th>
                   <th>Title</th>
-                  <th class="text-end">Price</th>
+                  <th class="text-end" style="width: 100px">Price</th>
                 </tr>
               </thead>
               <tbody>
