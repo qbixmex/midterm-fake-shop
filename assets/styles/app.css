@@ -31,7 +31,7 @@ body {
   font-size: 1.2rem;
 }
 
-#alert {
+#toast {
   display: block;
   width: 250px;
   position: fixed;
@@ -53,15 +53,4 @@ body {
     opacity: 1;
     transform: translateY(0) scaleX(1);
   }
-}
-
-#summary {
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
-
-#summary .modal-content {
-  width: 100%;
 }

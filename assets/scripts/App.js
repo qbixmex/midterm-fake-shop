@@ -36,6 +36,9 @@ class App {
 
     clearCartBtn.addEventListener('click', () => {
       this.shop.ShoppingCart.clearOrder();
+      setTimeout(() => {
+        this.shop.displayToast('Cart Cleared', 'success');
+      }, 500);
     });
 
     if (localStorage.getItem('cart')) {
@@ -64,7 +67,7 @@ class App {
    */
   addProductToCart(product) {
     this.shop.ShoppingCart.addToCart(product);
-    this.shop.displayToast();
+    this.shop.displayToast('Product added to cart', 'success');
   }
 
 }

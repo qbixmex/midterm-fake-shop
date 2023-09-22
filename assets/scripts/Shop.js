@@ -46,10 +46,13 @@ class Shop {
 
   /**
    * Show Toast notifications.
+   * @param {string} message - Message to display in toast.
+   * @param {'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger'} color Alert snippet color.
    * @returns {void}
    */
-  displayToast() {
-    $('body').prepend(Alert('Product added to cart', 'success'));
+  displayToast(message, color) {
+    const toast = `<div id="toast">${Alert(message, color)}</div>`;
+    $('body').prepend(toast);
     setTimeout(() => {
       $("#alert")
         .animate({ opacity: 0 }, 500)

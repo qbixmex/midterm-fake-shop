@@ -1,4 +1,4 @@
-import { Navbar, ProductRows } from './components/index.js';
+import { Navbar, ProductRows, Alert } from './components/index.js';
 import { formatPrice } from './helpers/format.js';
 
 class ShoppingCart {
@@ -59,7 +59,16 @@ class ShoppingCart {
     this.total = 0;
     localStorage.removeItem('cart');
     $('#total-price').text('$ 0.00');
-    $('#summary tbody').empty();
+    $('#summary tbody')
+      .empty()
+      .append('<tr>'
+        + '<td colspan="3">'
+        + '<div class="mt-3">'
+        + Alert("There's no products added yet !", 'warning')
+        + '</div>'
+        + '</td>'
+        + '</tr>'
+      );
     $('#cart-price span').text('$ 0.00');
   }
 

@@ -1,4 +1,5 @@
 import { formatPrice } from "../helpers/format.js";
+import { Alert } from './index.js';
 
 export const ProductRows = (cart) => {
   return cart.items.map(item => {
@@ -22,7 +23,7 @@ export const ProductRows = (cart) => {
 export const Modal = (cart) => {
   return `
     <div class="modal fade" id="summary" tabindex="-1">
-      <div class="modal-dialog modal-xl">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">Summary</h1>
@@ -41,7 +42,7 @@ export const Modal = (cart) => {
                 ${
                   (ProductRows(cart).length > 0)
                     ? ProductRows(cart).join('')
-                    : '<tr><td colspan="3"><div class="alert alert-warning mt-2 fw-bold text-center">No Items Added Yet !</div></td></tr>'
+                    : `<tr><td colspan="3"><div class="mt-3">${Alert("There's no products added yet !", 'warning')}</div></td></tr>`
                 }
               </tbody>
             </table>
